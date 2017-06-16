@@ -1,6 +1,8 @@
 <div class="row mb-5">
   <div class="col">
-    <%= link_to 'User Control Panel', control_panel_path %>
+    <% if user_signed_in? %>
+      <%= link_to 'User Control Panel', control_panel_path %>
+    <% end %>
   </div>
 
   <div class="col text-right">
