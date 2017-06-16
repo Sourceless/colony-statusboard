@@ -1,1 +1,19 @@
-team page
+<div class="row">
+    <h1 class="time display-1 mx-auto text-muted" id="time">00:00</h1>
+</div>
+
+<div class="row">
+  <% @users.each do |u| %>
+    <div class="col user user-status-<%= u.status %>">
+      <div class="user-image">
+        <%= gravatar_image_tag(u.email, filetype: 'png', gravatar: { size: 200 }) %>
+      </div>
+      <p class="user-name lead">
+        <%= u.name.humanize %>
+      </p>
+      <p class="user-status lead">
+        <%= u.status_message %>
+      </p>
+    </div>
+  <% end %>
+</div>

@@ -1,3 +1,34 @@
-// Place all the styles related to the team controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user
+{
+  display: block;
+  width: 200px;
+  text-align: center;
+}
+
+.user-image img
+{
+  border-radius: 100%;
+  border: 20px solid;
+}
+
+.user-status-away .user-image img
+{
+  border-color: #6078A8;
+  filter: grayscale(75%);
+  opacity: 0.8
+}
+
+.user-status-dnd .user-image img
+{
+  border-color: #D84830;
+}
+
+.user-status-busy .user-image img
+{
+  border-color: #F0A800;
+}
+
+.user-status-available .user-image img
+{
+  border-color: #78A830;;
+}
