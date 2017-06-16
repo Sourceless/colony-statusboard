@@ -13,7 +13,11 @@ class User < ApplicationRecord
   ]
 
   validates :status, inclusion: VALID_STATUSES
-  validates :name, presence: true
+
+  def friendly_name
+    name.present? ? name : email.split('@').first.split('.').first.humanize
+  end
+
 
   def friendly_status
     if status == 'dnd'

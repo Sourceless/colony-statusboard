@@ -1,3 +1,5 @@
+<%= link_to '< Back to team board', root_path %>
+
 <div class="row mx-auto">
   <div class="col">
     <h1 class="display-4 text-center">User Control Panel</h1>
@@ -12,7 +14,7 @@
 
 <div class="row mx-auto">
   <div class="col mx-auto text-center">
-    <p class="lead"><%= @user.email %></p>
+    <p class="lead"><%= @user.friendly_name %></p>
   </div>
 </div>
 
@@ -51,8 +53,11 @@
       </div>
     </div>
 
-    <div class="col mt-5">
+    <div class="col">
       <div class="form-group">
+        <%= f.label 'Name', for: 'user[name]' %>
+        <%= f.text_field 'name', class: 'form-control', placeholder: 'Display name or nickname' %>
+
         <%= f.label 'Status Message', for: 'user[status_message]' %>
         <%= f.text_field 'status_message', class: 'form-control', placeholder: 'Any additional info (optional)' %>
       </div>
