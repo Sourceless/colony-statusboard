@@ -1,5 +1,5 @@
 class TeamController < ApplicationController
   def index
-    @users = User.all
+    @users = User.order(email: :desc).all
   end
 end

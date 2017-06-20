@@ -19,12 +19,19 @@ class User < ApplicationRecord
     name.present? ? name : email.split('@').first.split('.').first.humanize
   end
 
-
   def friendly_status
     if status == 'dnd'
       'do not disturb'
     else
       status
+    end
+  end
+
+  def friendly_status_message
+    if status_message.nil? || status_message.empty?
+      friendly_status.humanize
+    else
+      status_message
     end
   end
 
@@ -54,6 +61,6 @@ class User < ApplicationRecord
   end
 
   def send_hook
-    ActionCable.server.broadcast('user_status', message: status_message, status: status, id: id)
+    ActionCable.server.broadcast('user_status', message: friendly_status_message, status: status, id: id)
   end
 end

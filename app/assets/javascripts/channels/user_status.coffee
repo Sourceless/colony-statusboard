@@ -8,5 +8,5 @@ App.user_status = App.cable.subscriptions.create "UserStatusChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
 
-  update_status: ->
-    @perform 'update_status'
+  update_status: (data) ->
+    @perform 'update_status', data

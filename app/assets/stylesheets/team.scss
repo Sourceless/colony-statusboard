@@ -5,30 +5,103 @@
   text-align: center;
 }
 
-.user-image img
+.user-image
 {
-  border-radius: 100%;
-  border: 20px solid;
+  height: 200px;
+  background-size: cover;
+  transition: opacity 0.2s ease-in;
 }
 
-.user-status-away .user-image img
+.user-image
 {
-  border-color: #6078A8;
+  transition: border 0.2s ease-in, filter 0.2s ease-in, opacity 0.2s ease-in; 
+  transition-delay: 0.1s;
+}
+
+.user-status
+{
+  transition: background 0.2s ease-in, color 0.2s ease-in;
+  transition-delay: 0.1s;
+}
+
+.user-status-away .user-image
+{
   filter: grayscale(75%);
-  opacity: 0.8
+  opacity: 0.8;
+  border: 3px solid #000;
+  border-radius: 3px 3px 0 0;
 }
 
-.user-status-dnd .user-image img
+.user-status-dnd .user-image
 {
-  border-color: #D84830;
+  border: 3px solid #D84830;
+  border-radius: 3px 3px 0 0;
 }
 
-.user-status-busy .user-image img
+.user-status-busy .user-image
+{
+  border: 3px solid #F0A800;
+  border-radius: 3px 3px 0 0;
+}
+
+.user-status-available .user-image
+{
+  border: 3px solid #78A830;
+  border-radius: 3px 3px 0 0;
+}
+
+.user-status-away .user-status
+{
+  background: #333;
+  color: #ccc;
+}
+
+.user-status-dnd .user-status
+{
+  background: #D84830;
+}
+
+.user-status-busy .user-status
+{
+  background: #F0A800;
+}
+
+.user-status-available .user-status
+{
+  background: #78A830;
+}
+
+.btn-status
+{
+  width: 2em;
+  height: 2em;
+  margin: 0 0.35em;
+  border-radius: 100%;
+  border: 3px solid #333;
+  transition: border 0.3s ease-in;
+}
+
+.btn-status:hover
+{
+  border-width: 1em;
+}
+
+.btn-available
+{
+  border-color: #78A830;
+}
+
+.btn-busy
 {
   border-color: #F0A800;
 }
 
-.user-status-available .user-image img
+.btn-dnd
 {
-  border-color: #78A830;;
+  border-color: #D84830;
+}
+
+.btn-status-active
+{
+  border-width: 1em;
 }
