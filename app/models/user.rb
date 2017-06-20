@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   after_initialize :set_default_status
+  after_save :send_hook
 
   VALID_STATUSES = [
     'available',
@@ -50,5 +51,9 @@ class User < ApplicationRecord
   private
   def set_default_status
     self.status ||= 'away'
+  end
+
+  def send_hook
+    ActionCable.server.broadcast('user_status', message: status_message, status: status, id: id)
   end
 end

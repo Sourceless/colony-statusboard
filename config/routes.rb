@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   get '/control_panel', to: 'user#control_panel'
   post '/set_status', to: 'user#set_status'
+
+  mount ActionCable.server => '/cable'
 end
