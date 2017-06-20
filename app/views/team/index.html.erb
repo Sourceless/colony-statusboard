@@ -1,13 +1,13 @@
 <ul class="nav my-0 py-4 mb-3">
-  <a id="btn-available" class="btn-status btn-available <%= 'btn-status-active' if current_user.available? %>" href="#"></a>
-  <a id="btn-busy"      class="btn-status btn-busy <%= 'btn-status-active' if current_user.busy? %>"           href="#"></a>
-  <a id="btn-dnd"       class="btn-status btn-dnd <%= 'btn-status-active' if current_user.dnd? %>"             href="#"></a>
-  <a id="btn-away"      class="btn-status btn-away <%= 'btn-status-active' if current_user.away? %>"           href="#"></a>
   <% if user_signed_in? %>
+    <a id="btn-available" class="btn-status btn-available <%= 'btn-status-active' if current_user.available? %>" href="#"></a>
+    <a id="btn-busy"      class="btn-status btn-busy <%= 'btn-status-active' if current_user.busy? %>"           href="#"></a>
+    <a id="btn-dnd"       class="btn-status btn-dnd <%= 'btn-status-active' if current_user.dnd? %>"             href="#"></a>
+    <a id="btn-away"      class="btn-status btn-away <%= 'btn-status-active' if current_user.away? %>"           href="#"></a>
     <%= link_to 'User Control Panel', control_panel_path, class: 'nav-link btn bg-inverse text-white ml-auto' %>
     <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link btn text-muted' %>
   <% else %>
-    <%= link_to 'Sign in/Create Account', new_user_session_path, class: 'nav-link active' %>
+    <%= link_to 'Sign in/Create Account', new_user_session_path, class: 'ml-auto btn bg-inverse text-white nav-link active' %>
   <% end %>
 </ul>
 
@@ -15,7 +15,7 @@
   <% @users.each do |u| %>
     <div class="col">
       <div id="user-<%= u.id %>" class="card user user-status-<%= u.status %> mx-auto">
-        <div class="user-image" style="background: url(<%= gravatar_image_url(u.email, filetype: 'png', size: 200) %>)">
+        <div class="user-image" style="background: url(<%= gravatar_image_url(u.email, filetype: 'png', size: 200, secure: true, default: "https://api.adorable.io/avatars/200/#{u.email}.png") %>)">
         </div>
         <p class="user-status py-2 card-text">
           <%= u.friendly_status_message %>
