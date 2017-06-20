@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'gravatar_image_tag'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'redis'
 
 group :development, :test do
   gem 'byebug', platform: :mri
