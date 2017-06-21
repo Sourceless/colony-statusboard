@@ -19,6 +19,7 @@ gem 'devise'
 gem 'gravatar_image_tag'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'redis'
+gem 'activeadmin'
 
 group :development, :test do
   gem 'byebug', platform: :mri
